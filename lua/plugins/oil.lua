@@ -10,11 +10,12 @@ return
      ---   columns = {"icon","size","mtime"},
      --- })
       require("oil").setup()
-      vim.keymap.set('n','<C-l>',"<CMD>Oil<CR>",{})
+      vim.keymap.set('n','<A-.>',"<CMD>Oil<CR>",{})
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "oil",
         callback = function()
           vim.keymap.set("n", "q", ":bd<CR>", { buffer = true, silent = true })
+          vim.keymap.set("n", "<A-.>", ":bd<CR>", { buffer = true, silent = true })
         end,
       })
     ---  vim.api.nvim_create_autocmd({ "BufWritePost", "BufLeave", "TextChanged" }, {

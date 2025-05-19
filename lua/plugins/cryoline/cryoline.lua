@@ -1,5 +1,6 @@
 -- plugins/my_statusline/statusline.lua
 local filetype=""
+local gitstatus="" 
 local currbranch=""
 local branch = ""
 local function get_git_branch()
@@ -26,6 +27,7 @@ vim.api.nvim_create_autocmd({"BufEnter"},{
   callback = function()
       filetype=filetype_lower()
       get_git_branch()
+        gitstatus=get_git_status()
       vim.cmd("redrawstatus") 
   end
 })
@@ -33,15 +35,16 @@ vim.api.nvim_create_autocmd("User", {
   pattern = "GitSignsUpdate",
   callback = function()
     get_git_branch()
+    gitstatus=get_git_status()
     vim.cmd("redrawstatus")
   end,
 })
 local function statusline()
   return table.concat({
   ---  " [%{mode()}]   ",
-    "%f",                       -- File path
+    " %f",                       -- File path
     "%M",                      -- Modified flag
-    " ", get_git_status(),      -- Git diff from gitsigns
+    " ", gitstatus,      -- Git diff from gitsigns
     "%=",                      -- Right align
     filetype or "",
     "  ",                    -- Filetype
