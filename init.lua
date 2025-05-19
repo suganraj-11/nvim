@@ -31,6 +31,7 @@ vim.opt.number = true
 vim.opt.cursorline=true
 vim.api.nvim_set_hl(0, 'CursorLine', { bg = 'NONE', underline = false })
 vim.opt.numberwidth=3
+vim.opt.signcolumn="no"
 
 --cmd line--
 vim.opt.cmdheight = 1
@@ -52,8 +53,28 @@ map("n", "<leader>n", function()
   vim.opt.number = not vim.opt.number:get()
 end, { desc = "Toggle number" })
 
+map('n','gll',vim.diagnostic.open_float)
 
 
+
+
+
+
+--- lsps ---
+local lsp_configs = {}
+for _, f in pairs(vim.api.nvim_get_runtime_file('lsp/*.lua', true)) do
+  local server_name = vim.fn.fnamemodify(f, ':t:r')
+  table.insert(lsp_configs, server_name)
+end
+vim.lsp.enable(lsp_configs)
+
+
+
+
+
+
+
+---custom function----
 local function get_directories()
   local directories = {}
 

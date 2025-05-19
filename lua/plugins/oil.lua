@@ -1,7 +1,7 @@
 return
   {
     'stevearc/oil.nvim',
-    lazy=false,
+    event="VeryLazy",
     ---@module 'oil'
     ---@type oil.SetupOpts
     opts = {},
@@ -9,7 +9,12 @@ return
      --- require("oil").setup({
      ---   columns = {"icon","size","mtime"},
      --- })
-      require("oil").setup()
+      require("oil").setup({
+                keymaps = {
+                    ["."] = "actions.parent",
+                    ["-"] = false, -- disable the default "-" mapping
+                }
+            })
       vim.keymap.set('n','<A-.>',"<CMD>Oil<CR>",{})
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "oil",
