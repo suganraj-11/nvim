@@ -1,7 +1,7 @@
 return {
   "folke/snacks.nvim",
     lazy=false,
-  priority = 1000,
+  priority = 1000000,
   ---@type snacks.Config
   opts = {
     picker = { enabled = true ,},

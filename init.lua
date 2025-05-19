@@ -59,14 +59,15 @@ map('n','gll',vim.diagnostic.open_float)
 
 
 
-
 --- lsps ---
 local lsp_configs = {}
 for _, f in pairs(vim.api.nvim_get_runtime_file('lsp/*.lua', true)) do
   local server_name = vim.fn.fnamemodify(f, ':t:r')
   table.insert(lsp_configs, server_name)
 end
+print(lsp_configs)
 vim.lsp.enable(lsp_configs)
+
 
 
 
