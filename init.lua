@@ -16,6 +16,11 @@ vim.opt.smartindent=true
 vim.opt.undofile=true
 
 
+--buffer--
+vim.opt.splitright=true
+vim.opt.splitbelow=true
+
+
 ---clipboard--
 vim.opt.clipboard = "unnamedplus"
 
@@ -24,10 +29,13 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.relativenumber = true
 vim.opt.number = true
 vim.opt.cursorline=true
+vim.api.nvim_set_hl(0, 'CursorLine', { bg = 'NONE', underline = false })
 vim.opt.numberwidth=3
 
 --cmd line--
 vim.opt.cmdheight = 1
+vim.opt.smartcase = true
+vim.opt.ignorecase = true
 
 
 --keymaps--
