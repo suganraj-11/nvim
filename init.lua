@@ -54,7 +54,6 @@ end, { desc = "Toggle number" })
 
 
 
-
 local function get_directories()
   local directories = {}
 
