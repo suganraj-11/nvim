@@ -56,6 +56,7 @@ end, { desc = "Toggle number" })
 map('n','gll',vim.diagnostic.open_float)
 
 
+vim.keymap.set('n','<A-.>',"<CMD>Oil<CR>",{})
 
 
 
