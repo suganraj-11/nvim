@@ -15,7 +15,9 @@ return {
     Lua = {
       runtime = {
         version = 'LuaJIT',
-      }
+      },
+
+               diagnostics = { disable = { 'missing-fields' } },
     }
   }
 
